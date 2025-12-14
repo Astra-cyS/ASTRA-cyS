@@ -54,32 +54,6 @@ function showLevels() {
 /* ===============================
    عرض الدروس داخل مستوى
 ================================ */
-function showLessons(level) {
-    fetch("lessons.json")
-        .then(res => res.json())
-        .then(data => {
-            const content = document.getElementById("content");
-            content.innerHTML = `<h2>${level}</h2>`;
-
-            data[level].forEach((lesson, index) => {
-    content.innerHTML += `
-        <div class="card" onclick="showLesson('${level}', ${index})">
-            <p>${lesson.title}</p>
-        </div>
-    `;
-});
-
-            content.innerHTML += `
-                <button onclick="showLevelQuiz('${level}')">
-                    🧪 Start Quiz
-                </button>
-            `;
-        });
-}
-
-/* ===============================
-   عرض درس واحد
-================================ */
 function showLesson(level, lessonId) {
     fetch("lessons.json")
         .then(res => res.json())
@@ -88,12 +62,10 @@ function showLesson(level, lessonId) {
             const content = document.getElementById("content");
 
             content.innerHTML = `
+                <img src="${lesson.image}" style="width:100%;border-radius:12px;">
                 <h2>${lesson.title}</h2>
-                <p style="line-height:1.8; font-size:16px;">
-                    ${lesson.content}
-                </p>
-                <br>
-                <button onclick="showLessons('${level}')">⬅ Back</button>
+                <p>${lesson.content}</p>
+                <button onclick="showLessons('${level}')">رجوع</button>
             `;
         });
 }
