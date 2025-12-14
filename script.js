@@ -50,6 +50,25 @@ function showLevels() {
                 `;
             });
         });
+   /* ===============================
+   عرض الدروس داخل مستوى
+================================ */
+function showLessons(level) {
+    fetch("lessons.json")
+        .then(res => res.json())
+        .then(data => {
+            const content = document.getElementById("content");
+            content.innerHTML = `<h2>${level}</h2>`;
+
+            data[level].forEach((lesson, index) => {
+                content.innerHTML += `
+                    <div class="card" onclick="showLesson('${level}', ${index})">
+                        <p>${lesson.title}</p>
+                    </div>
+                `;
+            });
+        });
+}
 }
 /* ===============================
    عرض الدروس داخل مستوى
