@@ -128,11 +128,12 @@ function handleCmd(e) {
 }
 
 // تشغيل الصفحة الرئيسية عند الفتح
-showHome();
+//showHome();
 let xp = localStorage.getItem("xp")
     ? parseInt(localStorage.getItem("xp"))
     : 0;
     updateProgress();
+showLevels();
 
 function showQuiz() {
     fetch("quiz.json")
@@ -195,3 +196,52 @@ function resetXP() {
     showQuiz();
     updateProgress();
 }
+function showLevels() {
+    fetch("lessons.json")
+        .then(res => res.json())
+        .then(data => {
+            const content = document.getElementById("content");
+            content.innerHTML = "<h2>Choose Level</h2>";
+
+            Object.keys(data).forEach(level => {
+                content.innerHTML += `
+                    <div class="card" onclick="showLessons('${level}')">
+                        <h3>${level}</h3>
+                    </div>
+                `;
+            });
+        });
+                         }
+function showLessons(level) {
+    fetch("lessons.json")
+        .then(res => res.json())
+        .then(data => {
+            const content = document.getElementById("content");
+            content.innerHTML = `<h2>${level}</h2>`;
+
+            data[level].forEach(lesson => {
+                content.innerHTML += `
+                    <div class="card" onclick="showLesson('${level}', ${lesson.id})">
+                        <p>${lesson.title}</p>
+                    </div>
+                `;
+            });
+        });
+}
+function showLesson(level, lessonId) {
+    fetch("lessons.json")
+        .then(res => res.json())
+        .then(data => {
+            const lesson = data[level].find(l => l.id === lessonId);
+            const content = document.getElementById("content");
+
+            content.innerHTML = `
+                <h2>${lesson.title}</h2>
+                <p style="line-height:1.8; font-size:16px;">
+                    ${lesson.content}
+                </p>
+                <br>
+                <button onclick="showLessons('${level}')">⬅ Back</button>
+            `;
+        });
+              }
