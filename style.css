@@ -1,0 +1,104 @@
+body {
+    background-color: #0b0f1a;
+    color: #00ffcc;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+header {
+    padding: 30px;
+    background: black;
+    border-bottom: 2px solid #00ffcc;
+}
+
+nav {
+    margin: 20px;
+}
+
+button {
+    background: transparent;
+    color: #00ffcc;
+    border: 1px solid #00ffcc;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #00ffcc;
+    color: black;
+}
+
+section {
+    padding: 20px;
+}
+h3 {
+    color: #ff0066;
+}
+
+p {
+    color: #ffffff;
+    max-width: 600px;
+    margin: auto;
+}
+.card {
+    background: #111;
+    border: 1px solid #00ffcc;
+    margin: 15px auto;
+    padding: 15px;
+    max-width: 600px;
+    border-radius: 8px;
+}
+.card button {
+    display: block;
+    width: 90%;
+    margin: 8px auto;
+}
+#progress-container {
+    width: 80%;
+    height: 20px;
+    background: #222;
+    border: 1px solid #00ffcc;
+    margin: 15px auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00ffcc, #ff0066);
+    transition: width 0.5s ease;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 6px;
+    color: #ffffff;
+}
+.card h3 {
+    text-shadow: 0 0 8px #00ffcc;
+}
+#terminal {
+    background: black;
+    color: #00ff00;
+    font-family: monospace;
+    padding: 15px;
+    max-width: 700px;
+    margin: auto;
+    border: 1px solid #00ffcc;
+    text-align: left;
+}
+
+#terminal input {
+    background: black;
+    color: #00ff00;
+    border: none;
+    width: 100%;
+    outline: none;
+    font-family: monospace;
+}

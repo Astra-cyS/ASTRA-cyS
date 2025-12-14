@@ -1,0 +1,20 @@
+[
+  {
+    "question": "ما معنى XSS؟",
+    "options": [
+      "Cross Site Scripting",
+      "Extra Secure System",
+      "XML Style Sheet"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "ما هو الهدف من اختبار الاختراق؟",
+    "options": [
+      "اختراق الناس",
+      "اكتشاف الثغرات",
+      "تخريب الأنظمة"
+    ],
+    "answer": 1
+  }
+]

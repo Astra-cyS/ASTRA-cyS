@@ -1,0 +1,32 @@
+[
+  {
+    "level": "🟢 Beginner",
+    "minXP": 0,
+    "topics": [
+      "ما هو الأمن السيبراني",
+      "أنواع الهاكرز",
+      "أساسيات الشبكات",
+      "Linux Basics"
+    ]
+  },
+  {
+    "level": "🟠 Advanced",
+    "minXP": 50,
+    "topics": [
+      "SQL Injection",
+      "XSS",
+      "Authentication",
+      "Web Security"
+    ]
+  },
+  {
+    "level": "🔴 Pro",
+    "minXP": 100,
+    "topics": [
+      "Privilege Escalation",
+      "Bug Bounty",
+      "Reverse Engineering",
+      "Red Team Basics"
+    ]
+  }
+]
