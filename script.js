@@ -1,5 +1,3 @@
-alert("JavaScript يعمل ✅");
-
 /* ===============================
    المتغيرات العامة
 ================================ */
@@ -34,13 +32,23 @@ function showLevels() {
             content.innerHTML = "<h2>Choose Level</h2>";
 
             Object.keys(data).forEach(level => {
+                const requiredXP = levelRequirements[level] || 0;
+                const locked = xp < requiredXP;
+
                 content.innerHTML += `
-                    <div class="card" onclick="showLessons('${level}')">
+                    <div class="card"
+                        style="opacity:${locked ? 0.4 : 1}"
+                        onclick="${
+                            locked
+                                ? `alert('🔒 يتطلب ${requiredXP} XP')`
+                                : `showLessons('${level}')`
+                        }">
                         <h3>${level}</h3>
                     </div>
                 `;
             });
-        });
+        })
+        .catch(err => alert("خطأ في تحميل المستويات"));
 }
 
 /* ===============================
@@ -60,7 +68,8 @@ function showLessons(level) {
                     </div>
                 `;
             });
-        });
+        })
+        .catch(err => alert("خطأ في تحميل الدروس"));
 }
 
 /* ===============================
@@ -79,11 +88,11 @@ function showLesson(level, lessonId) {
                 <p>${lesson.content}</p>
                 <button onclick="showLessons('${level}')">⬅ رجوع</button>
             `;
-        });
+        })
+        .catch(err => alert("خطأ في تحميل الدرس"));
 }
 
 /* ===============================
    تشغيل التطبيق
 ================================ */
 updateProgress();
-showLevels();
